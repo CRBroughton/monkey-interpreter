@@ -1,7 +1,6 @@
 package lexer
 
 import (
-	"go/token"
 	"testing"
 
 	"github.com/crbroughton/monkey-interpreter/token"
