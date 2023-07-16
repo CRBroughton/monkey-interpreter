@@ -167,9 +167,9 @@ func TestIntegerLiteralExpression(t *testing.T) {
 		t.Fatalf("pgoram.Statements[0] is not ast.ExpressionStatement, got=%T", program.Statements[0])
 	}
 
-	literal, ok := stmt.Expression.(*ast.IntegerLiteral)
+	literal, ok := stmt.Expression.(*ast.IntIegerLiteral)
 	if !ok {
-		t.Fatalf("exp not *ast.IntegerLIteral, got=%T", stmt.Expression)
+		t.Fatalf("exp not *ast.IntegerLiteral, got=%T", stmt.Expression)
 	}
 	if literal.Value != 5 {
 		t.Errorf("literal.Value not %d, got=%d", 5, literal.Value)
