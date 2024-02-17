@@ -1,12 +1,14 @@
 package lexer
 
 import (
-	"monkey/token"
 	"testing"
+
+	"github.com/crbroughton/monkey-interpreter/token"
 )
 
-func TestNextToken(t *testing.T) {
-	input := `=+(){},;`
+func TextNextToken(t *testing.T) {
+	input := "=+(){},;"
+
 	tests := []struct {
 		expectedType    token.TokenType
 		expectedLiteral string
@@ -21,16 +23,20 @@ func TestNextToken(t *testing.T) {
 		{token.SEMICOLON, ";"},
 		{token.EOF, ""},
 	}
-	l := New(input)
-	for i, tt := range tests {
-		tok := l.NextToken()
-		if tok.Type != tt.expectedType {
+
+	line := New(input)
+
+	for i, tokenType := range tests {
+		tok := line.NextToken()
+
+		if tok.Type != tokenType.expectedType {
 			t.Fatalf("tests[%d] - tokentype wrong. expected=%q, got=%q",
-				i, tt.expectedType, tok.Type)
+				i, tokenType.expectedType, tok.Type)
 		}
-		if tok.Literal != tt.expectedLiteral {
+		if tok.Literal != tokenType.expectedLiteral {
 			t.Fatalf("tests[%d] - literal wrong. expected=%q, got=%q",
-				i, tt.expectedLiteral, tok.Literal)
+				i, tokenType.expectedLiteral, tok.Literal)
 		}
+
 	}
 }
