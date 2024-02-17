@@ -10,13 +10,20 @@ type Token struct {
 const (
 	ILLEGAL = "ILLEGAL"
 	EOF     = "EOF"
-	// Identifiers + literals
-	IDENT = "IDENT" // add, foobar, x, y, ...
-	INT   = "INT"   // 1343456
-	// Operators
-	ASSIGN = "="
-	PLUS   = "+"
-	// Delimiters
+
+	IDENT = "IDENT" // add, subtract, x, y
+	INT   = "INT"
+
+	ASSIGN   = "="
+	PLUS     = "+"
+	MINUS    = "-"
+	BANG     = "!"
+	ASTERISK = "*"
+	SLASH    = "/"
+
+	LT = "<"
+	GT = ">"
+
 	COMMA     = ","
 	SEMICOLON = ";"
 	LPAREN    = "("
